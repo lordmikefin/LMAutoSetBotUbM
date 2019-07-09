@@ -228,6 +228,10 @@ fi
 
 
 echo ""
+echo "NOTE: Newer update 'pip' with 'pip' !!!  It will break something ?!?!?!"
+echo "      Always use 'sudo apt-get install python3-pip'"
+
+echo ""
 echo "Now you continue to real script (Python)."
 echo "   TODO: Add guide."
 echo ""
