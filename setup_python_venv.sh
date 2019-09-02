@@ -123,6 +123,17 @@ else
 fi
 
 
+echo ""
+APP_PIP="pip3"
+PIP_VERSION=$(lm_get_app_version ${APP_PIP})  || lm_failure
+if [ -z "${PIP_VERSION}" ] ; then
+	echo "'${APP_PIP}' is not installed !"
+	echo -e "\n Run init.sh first.  Aborting." >&2
+else
+	echo "'${APP_PIP}' is installed."
+fi
+
+
 
 
 echo "End of script '${CURRENT_SCRIPT}'"
