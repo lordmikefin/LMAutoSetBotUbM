@@ -137,8 +137,8 @@ fi
 # Make sure we are using the lates pip version.
 echo ""
 echo "Make sure we are using the lates pip version."
-#echo " $ ${APP_PIP} -m pip install --upgrade pip"
-#${APP_PIP} -m pip install --upgrade pip
+#echo " $ ${APP_PIP} install --upgrade pip"
+#${APP_PIP} install --upgrade pip
 echo ""
 echo "NOTE: Newer update 'pip' with 'pip' !!!  It will break something ?!?!?!"
 echo "      Always use 'sudo apt-get install python3-pip'"
@@ -150,7 +150,7 @@ echo ""
 echo "Installing root environment (Python) modules."
 echo ""
 echo " $ ${APP_PIP} install -U -r root_environment_requirements_linux.txt"
-${APP_PIP} install -U -r root_environment_requirements_linux_.txt  || lm_failure
+${APP_PIP} install -U -r root_environment_requirements_linux.txt  || lm_failure
 
 
 
