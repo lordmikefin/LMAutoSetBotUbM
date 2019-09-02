@@ -163,6 +163,32 @@ echo " $ ${APP_PIP} list"
 ${APP_PIP} list
 
 
+# I will try to use virtual environment 'venv-LMAutoSetBotUbM'.
+VENV="venv-LMAutoSetBotUbM"
+VENV_PATH="${HOME}/Venv"
+echo ""
+echo "I will try to use virtual environment '${VENV}'."
+echo "All my python scripts will use this environment."
+echo " $ source ${VENV_PATH}/${VENV}/bin/activate"
+#::call %USERPROFILE%\Envs\venv-LMAutoSetBotWin\Scripts\activate.bat
+#call workon venv-LMAutoSetBotWin
+source ${VENV_PATH}/${VENV}/bin/activate || {
+	echo ""
+	echo "Virtual environment '${VENV}' not found."
+	echo "Next I will create the venv."
+	echo ""
+} && {
+	echo ""
+	echo "Virtual environment '${VENV}' already exists."
+	echo "Now workon  ${VENV}"
+	echo ""
+}
+
+
+#ls ${VENV_PATH}  || {
+#	mkdir ${VENV_PATH}  
+#}
+
 
 echo "End of script '${CURRENT_SCRIPT}'"
 
