@@ -153,6 +153,13 @@ echo " $ ${APP_PIP} install -U -r root_environment_requirements_linux.txt"
 ${APP_PIP} install -U -r root_environment_requirements_linux.txt  || lm_failure
 
 
+# List of 'Root' environment modules
+echo ""
+echo "List of 'Root' environment modules"
+echo " $ ${APP_PIP} list --format=columns"
+${APP_PIP} list --format=columns
+
+
 
 echo "End of script '${CURRENT_SCRIPT}'"
 
