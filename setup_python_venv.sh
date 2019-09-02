@@ -171,6 +171,7 @@ func_create_venv () {
 	echo "I will create a new virtual environment '${VENV}'"
 	echo " $ virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}"
 	echo ""
+	virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}
 }
 
 # I will try to use virtual environment 'venv-LMAutoSetBotUbM'.
@@ -198,6 +199,12 @@ source ${VENV_PATH}/${VENV}/bin/activate  && {
 #ls ${VENV_PATH}  || {
 #	mkdir ${VENV_PATH}  
 #}
+
+echo ""
+echo "Current virtual environment:"
+echo "  ${VIRTUAL_ENV}"
+echo ""
+
 
 
 echo "End of script '${CURRENT_SCRIPT}'"
