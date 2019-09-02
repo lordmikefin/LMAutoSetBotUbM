@@ -197,14 +197,18 @@ source ${VENV_PATH}/${VENV}/bin/activate  && {
 }
 
 
-#ls ${VENV_PATH}  || {
-#	mkdir ${VENV_PATH}  
-#}
 
 echo ""
 echo "Current virtual environment:"
 echo "  ${VIRTUAL_ENV}"
 echo ""
+
+
+echo ""
+echo "(venv) $ ${APP_PIP} list --format=columns"
+echo ""
+${APP_PIP} list
+${APP_PIP} list --format=columns
 
 
 
