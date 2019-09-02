@@ -18,8 +18,8 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.2"
-CURRENT_SCRIPT_DATE="2019-07-09"
+CURRENT_SCRIPT_VER="0.0.3"
+CURRENT_SCRIPT_DATE="2019-09-02"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
 
@@ -235,5 +235,9 @@ echo ""
 echo "Now you continue to real script (Python)."
 echo "   TODO: Add guide."
 echo ""
+
+# TODO: Create Python venv
+
 echo "End of script '${CURRENT_SCRIPT}'"
+
 
