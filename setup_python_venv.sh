@@ -156,8 +156,11 @@ ${APP_PIP} install -U -r root_environment_requirements_linux.txt  || lm_failure
 # List of 'Root' environment modules
 echo ""
 echo "List of 'Root' environment modules"
-echo " $ ${APP_PIP} list --format=columns"
-${APP_PIP} list --format=columns
+# NOTE: Ubuntu is using extreme old 'pip' which does not have parameter 'format' :(
+#echo " $ ${APP_PIP} list --format=columns"
+#${APP_PIP} list --format=columns
+echo " $ ${APP_PIP} list"
+${APP_PIP} list
 
 
 
