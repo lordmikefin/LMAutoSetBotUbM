@@ -134,6 +134,12 @@ else
 fi
 
 
+# Make sure we are using the lates pip version.
+echo ""
+echo "Make sure we are using the lates pip version."
+echo " $ ${APP_PIP} -m pip install --upgrade pip"
+${APP_PIP} -m pip install --upgrade pip
+
 
 
 echo "End of script '${CURRENT_SCRIPT}'"
