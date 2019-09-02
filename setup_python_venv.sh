@@ -193,6 +193,7 @@ source ${VENV_PATH}/${VENV}/bin/activate  && {
 	echo ""
 	lm_pause
 	func_create_venv
+	source ${VENV_PATH}/${VENV}/bin/activate  || lm_failure
 }
 
 
