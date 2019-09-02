@@ -137,9 +137,12 @@ fi
 # Make sure we are using the lates pip version.
 echo ""
 echo "Make sure we are using the lates pip version."
-echo " $ ${APP_PIP} -m pip install --upgrade pip"
-${APP_PIP} -m pip install --upgrade pip
-
+#echo " $ ${APP_PIP} -m pip install --upgrade pip"
+#${APP_PIP} -m pip install --upgrade pip
+echo ""
+echo "NOTE: Newer update 'pip' with 'pip' !!!  It will break something ?!?!?!"
+echo "      Always use 'sudo apt-get install python3-pip'"
+# TODO: Is there way to update pip without breaking Ubuntu package manager?
 
 
 echo "End of script '${CURRENT_SCRIPT}'"
