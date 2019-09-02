@@ -163,9 +163,17 @@ echo " $ ${APP_PIP} list"
 ${APP_PIP} list
 
 
-# I will try to use virtual environment 'venv-LMAutoSetBotUbM'.
+
+# Create the venv
 VENV="venv-LMAutoSetBotUbM"
 VENV_PATH="${HOME}/Venv"
+func_create_venv () {
+	echo "I will create a new virtual environment '${VENV}'"
+	echo " $ virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}"
+	echo ""
+}
+
+# I will try to use virtual environment 'venv-LMAutoSetBotUbM'.
 echo ""
 echo "I will try to use virtual environment '${VENV}'."
 echo "All my python scripts will use this environment."
@@ -182,6 +190,8 @@ source ${VENV_PATH}/${VENV}/bin/activate  && {
 	echo "Virtual environment '${VENV}' not found."
 	echo "Next I will create the venv."
 	echo ""
+	#pause
+	func_create_venv
 }
 
 
