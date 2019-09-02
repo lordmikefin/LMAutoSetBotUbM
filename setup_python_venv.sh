@@ -172,15 +172,15 @@ echo "All my python scripts will use this environment."
 echo " $ source ${VENV_PATH}/${VENV}/bin/activate"
 #::call %USERPROFILE%\Envs\venv-LMAutoSetBotWin\Scripts\activate.bat
 #call workon venv-LMAutoSetBotWin
-source ${VENV_PATH}/${VENV}/bin/activate || {
-	echo ""
-	echo "Virtual environment '${VENV}' not found."
-	echo "Next I will create the venv."
-	echo ""
-} && {
+source ${VENV_PATH}/${VENV}/bin/activate  && {
 	echo ""
 	echo "Virtual environment '${VENV}' already exists."
 	echo "Now workon  ${VENV}"
+	echo ""
+} || {
+	echo ""
+	echo "Virtual environment '${VENV}' not found."
+	echo "Next I will create the venv."
 	echo ""
 }
 
