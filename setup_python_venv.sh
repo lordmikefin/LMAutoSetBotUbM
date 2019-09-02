@@ -145,6 +145,15 @@ echo "      Always use 'sudo apt-get install python3-pip'"
 # TODO: Is there way to update pip without breaking Ubuntu package manager?
 
 
+# Installing root environment (Python) modules.
+echo ""
+echo "Installing root environment (Python) modules."
+echo ""
+echo " $ ${APP_PIP} install -U -r root_environment_requirements_linux.txt"
+${APP_PIP} install -U -r root_environment_requirements_linux_.txt  || lm_failure
+
+
+
 echo "End of script '${CURRENT_SCRIPT}'"
 
 
