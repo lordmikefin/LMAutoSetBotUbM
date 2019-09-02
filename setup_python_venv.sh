@@ -160,7 +160,7 @@ echo "List of 'Root' environment modules"
 #echo " $ ${APP_PIP} list --format=columns"
 #${APP_PIP} list --format=columns
 echo " $ ${APP_PIP} list"
-${APP_PIP} list
+${APP_PIP} list  || lm_failure
 
 
 
@@ -171,7 +171,7 @@ func_create_venv () {
 	echo "I will create a new virtual environment '${VENV}'"
 	echo " $ virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}"
 	echo ""
-	virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}
+	virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}  || lm_failure
 }
 
 # I will try to use virtual environment 'venv-LMAutoSetBotUbM'.
@@ -208,13 +208,27 @@ echo ""
 echo ""
 echo "Make sure we are using the lates pip version."
 echo " (venv) $ ${APP_PIP} install --upgrade pip"
-${APP_PIP} install --upgrade pip
+${APP_PIP} install --upgrade pip  || lm_failure
 
 
 echo ""
 echo "(venv) $ ${APP_PIP} list --format=columns"
 echo ""
-${APP_PIP} list --format=columns
+${APP_PIP} list --format=columns  || lm_failure
+
+
+echo ""
+echo "Install all needed Python modules into venv."
+echo "(venv) $ ${APP_PIP} install -U -r requirements.txt"
+echo ""
+${APP_PIP} install -U -r requirements.txt  || lm_failure
+
+
+echo ""
+echo "List all outdated modules."
+echo "(venv) $ ${APP_PIP} list -o --format=columns"
+echo ""
+${APP_PIP} list -o --format=columns
 
 
 
