@@ -204,10 +204,16 @@ echo "  ${VIRTUAL_ENV}"
 echo ""
 
 
+# Make sure we are using the lates pip version.
+echo ""
+echo "Make sure we are using the lates pip version."
+echo " (venv) $ ${APP_PIP} install --upgrade pip"
+${APP_PIP} install --upgrade pip
+
+
 echo ""
 echo "(venv) $ ${APP_PIP} list --format=columns"
 echo ""
-${APP_PIP} list
 ${APP_PIP} list --format=columns
 
 
