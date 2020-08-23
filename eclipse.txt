@@ -77,6 +77,22 @@ $ sudo nano /opt/eclipse-pydev/eclipse.ini
 $ /opt/eclipse-pydev/eclipse
 
 
+$ nano ~/Desktop/eclipse-pydev.desktop
+--
+[Desktop Entry]
+Name=Eclipse-pydev
+Type=Application
+Exec=/opt/eclipse-pydev/eclipse
+Terminal=false
+Icon=/opt/eclipse-pydev/icon.xpm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=Eclipse-pydev
+Name[en_US]=Eclipse-pydev
+--
+
+$ chmod +x ~/Desktop/eclipse-pydev.desktop
 
 
 
