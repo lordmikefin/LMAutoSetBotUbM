@@ -65,5 +65,19 @@ $ sudo tar -xvzf ~/Downloads/eclipse-javascript-2020-06-R-linux-gtk-x86_64.tar.g
 $ cd eclipse/
 $ /opt/eclipse/eclipse
 
+$ sudo mv -v eclipse eclipse-pydev
+
+$ sudo nano /opt/eclipse-pydev/eclipse.ini
+--
+#-Dosgi.instance.area.default=@user.home/eclipse-workspace
+-Dosgi.instance.area.default=@user.home/eclipse-workspace-pydev
+--
+
+
+$ /opt/eclipse-pydev/eclipse
+
+
+
+
 
 
