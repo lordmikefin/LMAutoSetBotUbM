@@ -18,8 +18,8 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.1"
-CURRENT_SCRIPT_DATE="2019-09-02"
+CURRENT_SCRIPT_VER="0.0.2"
+CURRENT_SCRIPT_DATE="2021-01-11"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
 
@@ -171,6 +171,15 @@ func_create_venv () {
 	echo "I will create a new virtual environment '${VENV}'"
 	echo " $ virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}"
 	echo ""
+	# NOTE: virtualenv is not in path (Ubuntu-Mate 20)
+	#  WARNING: The script virtualenv is installed in '/home/lordmike/.local/bin' which is not on PATH.
+    #  Consider adding this directory to PATH
+    # TODO: add folder into PATH
+    # https://askubuntu.com/questions/60218/how-to-add-a-directory-to-the-path
+    # https://help.ubuntu.com/community/EnvironmentVariables
+    # $ nano ~/.profile
+    # $ export PATH="$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$PATH"
 	virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}  || lm_failure
 }
 
