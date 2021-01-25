@@ -18,7 +18,7 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.4"
+CURRENT_SCRIPT_VER="0.0.5"
 CURRENT_SCRIPT_DATE="2021-01-25"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
@@ -41,7 +41,7 @@ source ${IMPORT_FUNCTIONS}
 if [ ${LM_FUNCTIONS_LOADED} == false ]; then
 	>&2 echo "${BASH_SOURCE[0]}: line ${LINENO}: Something went wrong while loading functions."
 	exit 1
-elif [ ${LM_FUNCTIONS_VER} != "1.3.1" ]; then
+elif [ ${LM_FUNCTIONS_VER} != "1.3.2" ]; then
 	lm_functions_incorrect_version
 	if [ "${INPUT}" == "FAILED" ]; then
 		lm_failure
@@ -141,6 +141,7 @@ fi
 echo ""
 APP_PIP="pip3"
 PIP_VERSION=$(lm_get_app_version ${APP_PIP})  || lm_failure
+echo "PIP_VERSION ${PIP_VERSION}"
 if [ -z "${PIP_VERSION}" ] ; then
 	echo "'${APP_PIP}' is not installed !"
 else
@@ -151,11 +152,15 @@ fi
 # Test Java 8
 echo ""
 APP_JAVA="java"
-JAVA_VERSION=$(lm_get_app_version ${APP_JAVA})  || lm_failure
-if [ -z "${JAVA_VERSION}" ] ; then
+#JAVA_VERSION=$(lm_get_app_version ${APP_JAVA})  || lm_failure
+JAVA_VERSION=$(lm_get_java_version)  || lm_failure
+echo "JAVA_VERSION ${JAVA_VERSION}"
+if [ "${JAVA_VERSION}" == "Failed" ] ; then
 	echo "'${APP_JAVA}' is not installed !"
+	JAVA_VERSION=""
 else
 	echo "'${APP_JAVA}' is installed."
+	JAVA_VERSION="Java is installed"
 fi
 
 
