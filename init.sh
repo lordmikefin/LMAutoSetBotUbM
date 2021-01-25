@@ -18,8 +18,8 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.3"
-CURRENT_SCRIPT_DATE="2019-09-02"
+CURRENT_SCRIPT_VER="0.0.4"
+CURRENT_SCRIPT_DATE="2021-01-25"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
 
@@ -148,6 +148,17 @@ else
 fi
 
 
+# Test Java 8
+echo ""
+APP_JAVA="java"
+JAVA_VERSION=$(lm_get_app_version ${APP_JAVA})  || lm_failure
+if [ -z "${JAVA_VERSION}" ] ; then
+	echo "'${APP_JAVA}' is not installed !"
+else
+	echo "'${APP_JAVA}' is installed."
+fi
+
+
 
 #echo "This script is in test mode :)  Aborting." >&2
 #exit 1 # 127
@@ -206,6 +217,26 @@ if [ -z "${PIP_VERSION}" ] ; then
 	case "${INPUT}" in
 		"YES" )
 			sudo apt-get install python3-pip
+			;;
+		"NO" )
+			echo "Ok then. Bye."
+			lm_incomplete_message
+			exit 1
+			;;
+		"FAILED" | * )
+			lm_failure_message
+			;;
+	esac
+fi
+
+
+# install Java 8
+if [ -z "${JAVA_VERSION}" ] ; then
+	unset INPUT
+	lm_read_to_INPUT "Do you want to install the 'openjdk-8-jdk'?"
+	case "${INPUT}" in
+		"YES" )
+			sudo apt-get install openjdk-8-jdk
 			;;
 		"NO" )
 			echo "Ok then. Bye."
