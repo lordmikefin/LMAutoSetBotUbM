@@ -18,8 +18,8 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.3"
-CURRENT_SCRIPT_DATE="2021-03-01"
+CURRENT_SCRIPT_VER="0.0.4"
+CURRENT_SCRIPT_DATE="2021-06-07"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
 
@@ -28,7 +28,7 @@ echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 CURRENT_SCRIPT_REALPATH=$(realpath ${BASH_SOURCE[0]})
 CURRENT_SCRIPT_DIR=$(dirname ${CURRENT_SCRIPT_REALPATH})
 CURRENT_SCRIPT=$(basename ${CURRENT_SCRIPT_REALPATH})
-LM_TOYS_DIR=$(realpath "${CURRENT_SCRIPT_DIR}/submodule/LMToysBash")
+LM_TOYS_DIR=$(realpath "${CURRENT_SCRIPT_DIR}/../submodule/LMToysBash")
 #IMPORT_FUNCTIONS="$(realpath "${CURRENT_SCRIPT_DIR}/../../script/lm_functions.sh")"
 IMPORT_FUNCTIONS=$(realpath "${LM_TOYS_DIR}/lm_functions.sh")
 if [[ ! -f "${IMPORT_FUNCTIONS}" ]]; then
@@ -228,9 +228,13 @@ ${APP_PIP} list --format=columns  || lm_failure
 
 echo ""
 echo "Install all needed Python modules into venv."
-echo "(venv) $ ${APP_PIP} install -U -r requirements.txt"
+echo "(venv) $ ${APP_PIP} install -U -r setup_apps\requirements.txt"
+echo "(venv) $ ${APP_PIP} install -U -r app_source_handler\requirements.txt"
+echo "(venv) $ ${APP_PIP} install -U -r LMToyBoxPython\requirements.txt"
 echo ""
-${APP_PIP} install -U -r requirements.txt  || lm_failure
+${APP_PIP} install -U -r setup_apps\requirements.txt  || lm_failure
+${APP_PIP} install -U -r app_source_handler\requirements.txt  || lm_failure
+${APP_PIP} install -U -r LMToyBoxPython\requirements.txt  || lm_failure
 
 
 echo ""
