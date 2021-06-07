@@ -9,7 +9,21 @@ LordMike's Automatic Setup Bot for Ubuntu-MATE
 This project contains tools to install and setup all application as you like them to be.
 
 Quick installation quide.
-This will get needed stuff under your home folder.
+
+Clone
+-----
+
+Cloning will get needed stuff under current folder.
+
+
+Prepare for cloning
+-------------------
+
+Install Git
+
+.. code-block:: bash
+
+ sudo apt-get install git
 
 
 Clone the project using HTTPS and run it
@@ -17,9 +31,6 @@ Clone the project using HTTPS and run it
 
 .. code-block:: bash
 
- sudo apt-get install git
- 
- cd ~
  git clone https://github.com/lordmikefin/LMAutoSetBotUbM.git
  
  cd LMAutoSetBotUbM/
@@ -29,15 +40,11 @@ Clone the project using HTTPS and run it
  ./init.sh
 
 
-
 Clone the project using SSH
 ---------------------------
 
 .. code-block:: bash
 
- sudo apt-get install git
- 
- cd ~
  git clone git@github.com:lordmikefin/LMAutoSetBotUbM.git
  
  cd LMAutoSetBotUbM/
