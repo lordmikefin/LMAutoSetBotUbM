@@ -272,7 +272,11 @@ echo "Now you continue to real script (Python)."
 echo "   TODO: Add guide."
 echo ""
 
-# TODO: Create Python venv
+
+cd python
+
+:: Create Python virtual environment 'venv-LMAutoSetBotWin'
+CALL setup_python_venv.bat
 
 echo "End of script '${CURRENT_SCRIPT}'"
 
