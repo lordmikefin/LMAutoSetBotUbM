@@ -8,7 +8,7 @@ LordMike's Automatic Setup Bot for Ubuntu-MATE
 
 This project contains tools to install and setup all application as you like them to be.
 
-Quick installation quide.
+Quick installation guide.
 
 Clone
 -----
