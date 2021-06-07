@@ -228,13 +228,13 @@ ${APP_PIP} list --format=columns  || lm_failure
 
 echo ""
 echo "Install all needed Python modules into venv."
-echo "(venv) $ ${APP_PIP} install -U -r setup_apps\requirements.txt"
-echo "(venv) $ ${APP_PIP} install -U -r app_source_handler\requirements.txt"
-echo "(venv) $ ${APP_PIP} install -U -r LMToyBoxPython\requirements.txt"
+echo "(venv) $ ${APP_PIP} install -U -r setup_apps/requirements.txt"
+echo "(venv) $ ${APP_PIP} install -U -r app_source_handler/requirements.txt"
+echo "(venv) $ ${APP_PIP} install -U -r LMToyBoxPython/requirements.txt"
 echo ""
-${APP_PIP} install -U -r setup_apps\requirements.txt  || lm_failure
-${APP_PIP} install -U -r app_source_handler\requirements.txt  || lm_failure
-${APP_PIP} install -U -r LMToyBoxPython\requirements.txt  || lm_failure
+${APP_PIP} install -U -r setup_apps/requirements.txt  || lm_failure
+${APP_PIP} install -U -r app_source_handler/requirements.txt  || lm_failure
+${APP_PIP} install -U -r LMToyBoxPython/requirements.txt  || lm_failure
 
 
 echo ""
