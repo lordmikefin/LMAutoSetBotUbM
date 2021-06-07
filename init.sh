@@ -275,7 +275,7 @@ echo ""
 
 cd python
 
-:: Create Python virtual environment 'venv-LMAutoSetBotWin'
+# Create Python virtual environment 'venv-LMAutoSetBotWin'
 ./setup_python_venv.sh
 
 echo "End of script '${CURRENT_SCRIPT}'"
