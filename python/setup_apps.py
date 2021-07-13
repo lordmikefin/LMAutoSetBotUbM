@@ -182,7 +182,7 @@ def main_process():
     print_python_enviroment_info()
 
     try:
-        setup_apps.connect_samba_share()
+        #setup_apps.connect_samba_share()
         # TODO: xml config file should be generated separately
         # TODO: parameterise location of xml config file
         setup_apps.config.create_sample()
