@@ -276,9 +276,11 @@ echo ""
 cd python
 
 # Create Python virtual environment 'venv-LMAutoSetBotWin'
+echo "Run script  ./setup_python_venv.sh"
 ./setup_python_venv.sh
 
 # Launch python script. Will install applications.
+echo "Run script  ./setup_apps.sh"
 ./setup_apps.sh
 
 echo "End of script '${CURRENT_SCRIPT}'"
