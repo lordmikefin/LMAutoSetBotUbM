@@ -20,7 +20,7 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.1"
+CURRENT_SCRIPT_VER="0.0.2"
 CURRENT_SCRIPT_DATE="2021-07-13"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
@@ -158,6 +158,9 @@ echo "Current virtual environment:"
 echo "  ${VIRTUAL_ENV}"
 echo ""
 
+echo ""
+echo "Using python executable:  $(which ${APP_PY})"
+echo ""
 
 echo ""
 echo "Current variable PATH:"
@@ -165,8 +168,11 @@ echo "  ${PATH}"
 echo ""
 
 
-
-echo "   TODO: run setup_apps.py"
+echo ""
+echo "Run script setup_apps.py"
+echo " $ ${APP_PY} setup_apps.py"
+echo ""
+${APP_PY} setup_apps.py  || lm_failure
 
 
 echo ""
