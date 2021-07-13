@@ -27,7 +27,7 @@
 #__docformat__ = 'reStructuredText'
 
 __license__ = "MIT License"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 __revision__ = "setup_apps.py  v" + __version__ + " (2021-07-13)"
 
 import sys
@@ -205,8 +205,7 @@ def main_process():
     setup_apps.util.pause()
 
 if __name__ == '__main__':
-    #main_process()
-    print("TODO: run real main process")
+    main_process()
     
     '''
     TODO: is "admin" permissions needed in linux
