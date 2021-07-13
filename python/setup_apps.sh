@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (c) 2019, Mikko Niemelä a.k.a. Lord Mike (lordmike@iki.fi)
+# Copyright (c) 2021, Mikko Niemelä a.k.a. Lord Mike (lordmike@iki.fi)
 # 
 # License of this script file:
 #   MIT License
@@ -9,17 +9,19 @@
 #   https://github.com/lordmikefin/LMAutoSetBotUbM/blob/master/LICENSE
 # 
 # Latest version of this script file:
-#   https://github.com/lordmikefin/LMAutoSetBotUbM/blob/master/python/setup_python_venv.sh
+#   https://github.com/lordmikefin/LMAutoSetBotUbM/blob/master/python/setup_apps.sh
 
 
-# setup_python_venv.sh
-# This script will setup Python virtual environment for my scripts :)
+# setup_apps.bat
+# This script will start python script.
+# 
+# The python script will download and install apps.
 
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.4"
-CURRENT_SCRIPT_DATE="2021-06-07"
+CURRENT_SCRIPT_VER="0.0.1"
+CURRENT_SCRIPT_DATE="2021-07-13"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
 
@@ -123,86 +125,30 @@ else
 fi
 
 
-echo ""
-APP_PIP="pip3"
-PIP_VERSION=$(lm_get_app_version ${APP_PIP})  || lm_failure
-if [ -z "${PIP_VERSION}" ] ; then
-	echo "'${APP_PIP}' is not installed !"
-	echo -e "\n Run init.sh first.  Aborting." >&2
-else
-	echo "'${APP_PIP}' is installed."
-fi
 
 
-# Make sure we are using the lates pip version.
-echo ""
-echo "Make sure we are using the lates pip version."
-#echo " $ ${APP_PIP} install --upgrade pip"
-#${APP_PIP} install --upgrade pip
-echo ""
-echo "NOTE: Newer update 'pip' with 'pip' !!!  It will break something ?!?!?!"
-echo "      Always use 'sudo apt-get install python3-pip'"
-# TODO: Is there way to update pip without breaking Ubuntu package manager?
-
-
-# Installing root environment (Python) modules.
-echo ""
-echo "Installing root environment (Python) modules."
-echo ""
-echo " $ ${APP_PIP} install -U -r root_environment_requirements_linux.txt"
-${APP_PIP} install -U -r root_environment_requirements_linux.txt  || lm_failure
-
-
-# List of 'Root' environment modules
-echo ""
-echo "List of 'Root' environment modules"
-# NOTE: Ubuntu is using extreme old 'pip' which does not have parameter 'format' :(
-#echo " $ ${APP_PIP} list --format=columns"
-#${APP_PIP} list --format=columns
-echo " $ ${APP_PIP} list"
-${APP_PIP} list  || lm_failure
-
-
-
-# Create the venv
+# the venv
 VENV="venv-LMAutoSetBotUbM"
 VENV_PATH="${HOME}/Venv"
-func_create_venv () {
-	echo "I will create a new virtual environment '${VENV}'"
-	echo " $ virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}"
-	echo ""
-	# NOTE: virtualenv is not in path (Ubuntu-Mate 20)
-	#  WARNING: The script virtualenv is installed in '/home/lordmike/.local/bin' which is not on PATH.
-    #  Consider adding this directory to PATH
-    # TODO: add folder into PATH
-    # https://askubuntu.com/questions/60218/how-to-add-a-directory-to-the-path
-    # https://help.ubuntu.com/community/EnvironmentVariables
-    # $ nano ~/.profile
-    # $ export PATH="$HOME/.local/bin:$PATH"
-    export PATH="$HOME/.local/bin:$PATH"
-	virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}  || lm_failure
-}
+
+
+
 
 # I will try to use virtual environment 'venv-LMAutoSetBotUbM'.
 echo ""
 echo "I will try to use virtual environment '${VENV}'."
 echo "All my python scripts will use this environment."
 echo " $ source ${VENV_PATH}/${VENV}/bin/activate"
-#::call %USERPROFILE%\Envs\venv-LMAutoSetBotWin\Scripts\activate.bat
-#call workon venv-LMAutoSetBotWin
 source ${VENV_PATH}/${VENV}/bin/activate  && {
 	echo ""
-	echo "Virtual environment '${VENV}' already exists."
 	echo "Now workon  ${VENV}"
 	echo ""
 } || {
 	echo ""
 	echo "Virtual environment '${VENV}' not found."
-	echo "Next I will create the venv."
 	echo ""
-	lm_pause
-	func_create_venv
-	source ${VENV_PATH}/${VENV}/bin/activate  || lm_failure
+	echo -e "\n Run setup_python_venv.sh first.  Aborting." >&2
+	exit 1
 }
 
 
@@ -213,36 +159,20 @@ echo "  ${VIRTUAL_ENV}"
 echo ""
 
 
-# Make sure we are using the lates pip version.
 echo ""
-echo "Make sure we are using the lates pip version."
-echo " (venv) $ ${APP_PIP} install --upgrade pip"
-${APP_PIP} install --upgrade pip  || lm_failure
+echo "Current variable PATH:"
+echo "  ${PATH}"
+echo ""
+
+
+
+echo "   TODO: run setup_apps.py"
 
 
 echo ""
-echo "(venv) $ ${APP_PIP} list --format=columns"
+echo "Current variable PATH:"
+echo "  ${PATH}"
 echo ""
-${APP_PIP} list --format=columns  || lm_failure
-
-
-echo ""
-echo "Install all needed Python modules into venv."
-echo "(venv) $ ${APP_PIP} install -U -r setup_apps/requirements.txt"
-echo "(venv) $ ${APP_PIP} install -U -r app_source_handler/requirements.txt"
-echo "(venv) $ ${APP_PIP} install -U -r LMToyBoxPython/requirements.txt"
-echo ""
-${APP_PIP} install -U -r setup_apps/requirements.txt  || lm_failure
-${APP_PIP} install -U -r app_source_handler/requirements.txt  || lm_failure
-${APP_PIP} install -U -r LMToyBoxPython/requirements.txt  || lm_failure
-
-
-echo ""
-echo "List all outdated modules."
-echo "(venv) $ ${APP_PIP} list -o --format=columns"
-echo ""
-${APP_PIP} list -o --format=columns
-
 
 
 echo "End of script '${CURRENT_SCRIPT}'"
