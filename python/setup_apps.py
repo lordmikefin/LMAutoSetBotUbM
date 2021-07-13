@@ -27,7 +27,7 @@
 #__docformat__ = 'reStructuredText'
 
 __license__ = "MIT License"
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __revision__ = "setup_apps.py  v" + __version__ + " (2021-07-13)"
 
 import sys
@@ -60,7 +60,9 @@ def activate_virtual_environment():
     #py_home = '/var/www/venv-lm-scripts/env'
     #activate_this = py_home + '/bin/activate_this.py'
     #py_home = 'C:/Users/lordmike/Envs/venv-LMAutoSetBotWin'
-    py_home = os.environ.get('USERPROFILE') + '/Envs/venv-LMAutoSetBotWin'
+    #py_home = os.environ.get('USERPROFILE') + '/Envs/venv-LMAutoSetBotWin'
+    user_home = setup_apps.util.home_path()
+    py_home = user_home + '/Envs/venv-LMAutoSetBotWin'
     activate_this = py_home + '/Scripts/activate_this.py'
 
     with open(activate_this) as file_:
