@@ -18,7 +18,7 @@
 
 
 unset CURRENT_SCRIPT_VER CURRENT_SCRIPT_DATE
-CURRENT_SCRIPT_VER="0.0.4"
+CURRENT_SCRIPT_VER="0.0.5"
 CURRENT_SCRIPT_DATE="2021-06-07"
 echo "CURRENT_SCRIPT_VER: ${CURRENT_SCRIPT_VER} (${CURRENT_SCRIPT_DATE})"
 
@@ -166,7 +166,8 @@ ${APP_PIP} list  || lm_failure
 
 # Create the venv
 VENV="venv-LMAutoSetBotUbM"
-VENV_PATH="${HOME}/Venv"
+#VENV_PATH="${HOME}/Venv"
+VENV_PATH="${HOME}/Envs"
 func_create_venv () {
 	echo "I will create a new virtual environment '${VENV}'"
 	echo " $ virtualenv -p /usr/bin/python3 ${VENV_PATH}/${VENV}"
